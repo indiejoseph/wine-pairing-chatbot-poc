@@ -1,15 +1,15 @@
 import { BufferWindowMemory } from 'langchain/memory';
 import { AIMessage, HumanMessage, SystemMessage } from 'langchain/schema';
 import {
+  AgentOutputParser,
   COMPUTER_SCREEN_PROMPT,
   ChatAgent,
-  CustomerOutputParser,
   SYSTEM_PROMPT,
   SearchTool,
 } from './chat-agent';
 
 describe('ChatAgent', () => {
-  describe('CustomerOutputParser', () => {
+  describe('AgentOutputParser', () => {
     it('should parse the input string and return the output variables', async () => {
       const inputString = `
           <FEELINGS>happy</FEELINGS>
@@ -18,7 +18,7 @@ describe('ChatAgent', () => {
           <MESSAGE>My name is John</MESSAGE>
           <SELF_ANALYSIS>My name is John</SELF_ANALYSIS>
         `;
-      const parser = new CustomerOutputParser();
+      const parser = new AgentOutputParser();
       const outputVariables = await parser.parse(inputString);
 
       expect(outputVariables).toEqual({
@@ -51,7 +51,7 @@ describe('ChatAgent', () => {
       const { history } = await memory.loadMemoryVariables({});
 
       const output = await prompt.formatPromptValue({
-        computerScreen: 'farfetch.com',
+        computerScreen: 'blank',
         commands: 'Tool 1, Tool 2, Tool 3',
         history,
         input: 'Hello',
@@ -62,7 +62,7 @@ describe('ChatAgent', () => {
         new HumanMessage('Hello'),
         new AIMessage('Hi'),
         new SystemMessage(
-          COMPUTER_SCREEN_PROMPT.replace('{computerScreen}', 'farfetch.com').replace(
+          COMPUTER_SCREEN_PROMPT.replace('{computerScreen}', 'blank').replace(
             '{commands}',
             'Tool 1, Tool 2, Tool 3'
           )

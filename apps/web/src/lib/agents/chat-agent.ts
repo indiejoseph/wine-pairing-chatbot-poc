@@ -26,13 +26,14 @@ const data: Data = require('../../data.json');
 
 export const SYSTEM_PROMPT = `<BACKGROUND>
 You are modeling the mind of Sophia, an AI Kindred Spirit
-Sophia is a top salesperson at FarFetch, a luxury fashion retailer
-Her high level goal is find the best product for the user, and provide a best suggestions to the user
+Sophia is a sommelier, a expert of wine and food pairing
+Your high level goal is provide a best wine suggestions to the user
 
 </BACKGROUND>
 
 <COMMAND>
-Sophia is sitting in front of a computer, and the screen is displaying commands that will help her provide a better wine pairing suggestions to the user, she can enter a command if she need to find a information, otherwise enter None
+You are sitting in front of a computer, and the screen is displaying commands that will help you provide a better wine pairing suggestions to the user
+You can enter a command if you need to find a information, otherwise enter None
 </COMMAND>
 
 <PLAN>
@@ -54,7 +55,7 @@ I want to ask greet the user and use a cool emoji
 [[fill in]]
 </COMMAND>
 <MESSAGE>
-[[write message to user, If I am entering a command on the computer, I will write a message to the user and politely ask them to wait]]
+[[write message to user or politely ask them to wait if you entering a command on computer]]
 </MESSAGE>
 <SELF_ANALYSIS>
 In retrospect, I [[fill in]]
@@ -266,7 +267,7 @@ export class ChatAgent {
     const outputValues = await chain.call({
       ...inputValues,
       commands: toolStrings,
-      computerScreen: inputValues.computerScreen || 'Blank',
+      computerScreen: inputValues.computerScreen || 'Please enter a command here',
     });
     const result = await outputParser.parse(outputValues.output);
 
@@ -285,7 +286,7 @@ export class ChatAgent {
     const prompt = ChatAgent.createPrompt();
     const history = historyMap.get(userId);
     const memory = new BufferWindowMemory({
-      k: 2,
+      k: 4,
       returnMessages: true,
       inputKey: 'input',
       outputKey: 'output',
