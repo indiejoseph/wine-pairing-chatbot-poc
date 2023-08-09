@@ -1,0 +1,26 @@
+{
+  "name": "poc",
+  "private": true,
+  "description": "Wine pairing PoC",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo dev",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "lint": "turbo lint",
+    "test": "turbo test",
+    "test:watch": "turbo test:watch"
+  },
+  "devDependencies": {
+    "eslint-config-custom": "*",
+    "prettier": "2.8.7",
+    "turbo": "1.9.2"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "yarn@1.22.19"
+}
