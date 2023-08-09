@@ -1,14 +1,25 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": [
-    "**/.env.*local"
+    "**/.env.*local",
+    "tsconfig.json"
   ],
   "pipeline": {
     "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**"
+      ]
+    },
+    "web#build": {
+      "dependsOn": [
+        "^build",
+      ],
       "outputs": [
         ".next/**",
-        "!.next/cache/**",
-        "dist"
+        "!.next/cache/**"
       ]
     },
     "build:watch": {
@@ -25,7 +36,6 @@
     }
   },
   "globalEnv": [
-    "OPENAI_API_KEY",
-    "REDIS_URL"
+    "OPENAI_API_KEY"
   ]
 }

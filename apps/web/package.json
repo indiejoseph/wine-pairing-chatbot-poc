@@ -5,6 +5,7 @@
   "scripts": {
     "build": "next build",
     "dev": "yarn with-env next dev",
+    "lint": "next lint",
     "test": "jest --detectOpenHandles",
     "test:watch": "yarn with-env jest --watch --detectOpenHandles",
     "with-env": "dotenv -e ../../.env --"
@@ -28,6 +29,7 @@
     "@types/react": "18.2.19",
     "@types/react-dom": "18.2.7",
     "dotenv-cli": "7.2.1",
+    "eslint-config-custom": "*",
     "jest": "29.5.0",
     "jest-presets": "*",
     "nodemon": "2.0.22",
