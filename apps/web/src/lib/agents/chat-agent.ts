@@ -268,9 +268,6 @@ export class ChatAgent {
       commands: toolStrings,
       computerScreen: inputValues.computerScreen || 'Blank',
     });
-
-    console.log('outputValues.output =', outputValues.output);
-
     const result = await outputParser.parse(outputValues.output);
 
     return result as OutputVariables & {

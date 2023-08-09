@@ -40,8 +40,6 @@ export const ChatUI: React.FC<React.PropsWithChildren<ChatUIProps>> = ({
         content: { text: res.message },
       });
 
-      console.log('res.command =', res.command);
-
       if (res.command && !res.command.startsWith('Non')) {
         const executeRes = await onSend({ command: res.command });
 
@@ -66,6 +64,7 @@ export const ChatUI: React.FC<React.PropsWithChildren<ChatUIProps>> = ({
       navbar={{
         title: 'Sophia the Sommelier',
       }}
+      placeholder="Type a message"
       renderMessageContent={renderMessageContent}
       onSend={handleSend}
     />
