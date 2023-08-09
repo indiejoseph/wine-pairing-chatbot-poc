@@ -41,6 +41,8 @@ export const ChatUI: React.FC<React.PropsWithChildren<ChatUIProps>> = ({
       });
 
       if (res.command && !res.command.startsWith('Non')) {
+        setTyping(true);
+
         const executeRes = await onSend({ command: res.command });
 
         appendMsg({
