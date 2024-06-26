@@ -15,7 +15,8 @@ import {
 import { BaseOutputParser } from 'langchain/schema/output_parser';
 import { BaseMessage } from 'langchain/schema';
 
-const debug = Debug('lib:chatbot-agent');
+const debug = Debug('apps:web:lib:ChatAgent');
+const isDevelopment = (process.env.NODE_ENV || 'development') === 'development';
 
 type Data = Array<{
   article: string;
@@ -182,7 +183,9 @@ export class ChatAgent {
 
   constructor() {
     this.llm = new ChatOpenAI({
+      modelName: 'gpt-4',
       temperature: 0.5,
+      verbose: isDevelopment,
     });
   }
 
