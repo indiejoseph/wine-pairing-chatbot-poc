@@ -41,11 +41,11 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./apps/api/Dockerfile
+          file: ./Dockerfile
           push: true
           no-cache: true
           platforms: linux/amd64
-          tags: 'ghcr.io/hetaro-labs/showtime-ai-api:latest'
+          tags: 'ghcr.io/indiejoseph/wine-pairing-chatbot-poc:latest'
 
   deploy:
     runs-on: ubuntu-latest
