@@ -6,6 +6,7 @@ const nextConfig = {
     appDir: false,
     externalDir: true,
   },
+  output: 'standalone',
   webpack: config => {
     config.optimization.splitChunks = false;
 
