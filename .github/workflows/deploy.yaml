@@ -61,6 +61,7 @@ jobs:
         run: |
           echo "Generating .env file"
           echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" >> .env
+          echo "PORT=${{vars.PORT}}" >> .env
 
       # Copy docker-compose and .env files to target server
       - name: copy files to target server via scp
