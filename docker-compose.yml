@@ -1,6 +1,6 @@
 services:
   web:
-    image: ghcr.io/indiejoseph/wine-pairing-chatbot:latest
+    image: ghcr.io/indiejoseph/wine-pairing-chatbot-poc:latest
     restart: always
     environment:
       - OPENAI_API_KEY=${OPENAI_API_KEY}
