@@ -8,11 +8,6 @@ const nextConfig = {
     outputFileTracingRoot: path.join(__dirname, '../../'),
   },
   output: 'standalone',
-  webpack: config => {
-    config.optimization.splitChunks = false;
-
-    return config;
-  },
   typescript: {
     tsconfigPath: 'tsconfig.build.json',
     ignoreBuildErrors: true
