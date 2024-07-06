@@ -19,7 +19,7 @@
     "fastify": "4.15.0",
     "hnswlib-node": "2.0.0",
     "langchain": "0.0.114",
-    "next": "13.4.13",
+    "next": "14.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
