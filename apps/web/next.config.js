@@ -1,10 +1,11 @@
 /** @type {import('next').NextConfig} */
+
+const path = require('path');
+
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   experimental: {
-    appDir: false,
-    externalDir: true,
+    outputFileTracingRoot: path.join(__dirname, '../../'),
   },
   output: 'standalone',
   webpack: config => {
