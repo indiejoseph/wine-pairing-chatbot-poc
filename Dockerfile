@@ -34,6 +34,8 @@ RUN yarn turbo run build --filter=@poc/web
 FROM base AS runner
 WORKDIR /app
 
+ENV NODE_ENV=production
+
 RUN apk update
 RUN apk add --no-cache python3
 
@@ -51,4 +53,4 @@ COPY --from=installer --chown=nextjs:nodejs /app/apps/web/.next/standalone ./
 COPY --from=installer --chown=nextjs:nodejs /app/apps/web/.next/static ./apps/web/.next/static
 COPY --from=installer --chown=nextjs:nodejs /app/apps/web/public ./apps/web/public
 
-CMD cd apps/web && node server.js
+CMD node apps/web/server.js

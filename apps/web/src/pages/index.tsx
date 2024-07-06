@@ -34,6 +34,7 @@ export default function Home() {
       <Head>
         <title>Sophia the Sommelier</title>
         <meta content="Wine paring AI Assistant" name="description" />
+        <meta content="noindex" name="robots" />
         <meta
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover"
           name="viewport"
