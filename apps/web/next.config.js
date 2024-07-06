@@ -6,6 +6,7 @@ const nextConfig = {
   reactStrictMode: true,
   experimental: {
     outputFileTracingRoot: path.join(__dirname, '../../'),
+    appDir: false,
   },
   output: 'standalone',
   typescript: {
